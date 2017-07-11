@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Employees</title>
+    <link href="/bootstrap.min.css" rel="stylesheet"></link>
+    <link href="/main.css" rel="stylesheet"></link>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/allstudents">Students</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/addEmployee">Add Employee</a></li>
+                <li><a href="/addManager">Add Manager</a></li>
+                <li><a href="/addTechnology">Add Technology</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<table>
+    <tr>
+        <th>Employee</th>
+        <th>Manager</th>
+        <th>Technology</th>
+
+    </tr>
+    <tr th:each="employee : ${employees}">
+        <td th:text="${employee.name}">Onions</td>
+        <td th:text="${employee.manager}">2.41</td>
+        <td th:text="${employee.technology}">yes</td>
+        <td><a th:href="@{employees/__${employee.id}__/update}"
+               th:text="Update">1</a></td>
+        <td><a th:href="@{employees/__${employee.id}__/delete}"
+               th:text="Delete">1</a></td>
+    </tr>
+</table>
+
+
+</body>
+</html>
