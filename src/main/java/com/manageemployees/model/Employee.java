@@ -1,16 +1,26 @@
 package com.manageemployees.model;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * Created by v.balan on 11-Jul-17.
  */
+@Entity
 public class Employee {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
     private String name;
+
+    @ManyToOne(cascade = {CascadeType.PERSIST})
+    @JoinColumn(name="manager_id")
     private Manager manager;
+
+    @ManyToMany(cascade={CascadeType.PERSIST}, fetch = FetchType.EAGER)
     private Set<Technology> technology = new HashSet<>();
 
     public int getId() {

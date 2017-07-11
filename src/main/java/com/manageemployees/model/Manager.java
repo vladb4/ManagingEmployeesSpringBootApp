@@ -1,15 +1,21 @@
 package com.manageemployees.model;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * Created by v.balan on 11-Jul-17.
  */
+@Entity
 public class Manager {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
+
+    @OneToMany(mappedBy ="manager", cascade = {CascadeType.PERSIST})
     private Set<Employee> employees = new HashSet<>();
 
     @Override
