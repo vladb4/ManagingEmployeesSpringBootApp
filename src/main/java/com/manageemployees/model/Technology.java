@@ -13,14 +13,14 @@ public class Technology {
     @Id
     @GeneratedValue
     private int id;
-    private String name;
 
     @Override
     public String toString() {
-        return "Technology{" +
-                "name='" + name + '\'' +
-                '}';
+        return name;
     }
+
+    private String name;
+
 
     public String getName() {
         return name;

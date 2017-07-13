@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Add Employee</title>
+    <link href="/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/main.css" rel="stylesheet"/>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/allEmployees">Employees</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/addEmployee">Add Employee</a></li>
+                <li><a href="/addManager">Add Manager</a></li>
+                <li><a href="/addTechnology">Add Technology</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<form th:action="@{/addEmployee}" th:object="${employee}" method="post">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}" /></td>
+        </tr>
+        <tr>
+            <td>Manager</td>
+            <td><select class="form-control" th:field="*{manager}">
+                <option th:each="manager : ${managers}" th:value="${manager.id}"
+                        th:text="${manager}"></option>
+
+            </select></td>
+        </tr>
+
+        <tr>
+            <td>Technology</td>
+
+            <td><br></br>
+                <li th:each="technology : ${technologies}"><input type="checkbox"
+                                                           th:field="*{technology}" th:value="${technology.id}"
+                                                           th:text="${technology}" /></li></td>
+        </tr>
+
+        <tr>
+            <td><button type="submit">Submit</button></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

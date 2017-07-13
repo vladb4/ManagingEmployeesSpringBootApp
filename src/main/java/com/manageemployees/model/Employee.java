@@ -14,6 +14,15 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", manager=" + manager +
+                ", technology=" + technology +
+                '}';
+    }
+
     private String name;
 
     @ManyToOne(cascade = {CascadeType.PERSIST})
@@ -53,14 +62,6 @@ public class Employee {
 
     public void setTechnology(Set<Technology> technology) {
         this.technology = technology;
-    }
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                ", manager=" + manager +
-                ", technology=" + technology +
-                '}';
     }
 
 

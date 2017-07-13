@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Add Manager</title>
+    <link href="/bootstrap.min.css" rel="stylesheet"></link>
+    <link href="/main.css" rel="stylesheet"></link>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/allEmployees">Employees</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/addEmployee">Add Employee</a></li>
+                <li><a href="/addManager">Add Manager</a></li>
+                <li><a href="/addTechnology">Add Technology</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<form action="#" th:action="@{/addManager}" th:object="${manager}"
+      method="post">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}" /></td>
+        </tr>
+        <tr>
+            <td><button type="submit">Submit</button></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

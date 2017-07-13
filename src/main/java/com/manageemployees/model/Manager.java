@@ -14,16 +14,12 @@ public class Manager {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
-
-    @OneToMany(mappedBy ="manager", cascade = {CascadeType.PERSIST})
-    private Set<Employee> employees = new HashSet<>();
+    @OneToMany(mappedBy = "manager", cascade = {CascadeType.PERSIST})
+    private Set<Employee> employees = new HashSet<Employee>();
 
     @Override
     public String toString() {
-        return "Manager{" +
-                "name='" + name + '\'' +
-                ", employees=" + employees +
-                '}';
+        return name;
     }
 
     public int getId() {
